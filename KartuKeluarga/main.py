@@ -3,6 +3,8 @@ from faker import Faker
 from random import randint
 import random
 from datetime import datetime
+import matlab.engine
+
 
 posK = (2960, 32)
 posNo = (1470,215)
@@ -122,7 +124,37 @@ def ibuDrawer(draw,xy,nama):
     draw.text(xy, nama, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
     return draw
 
-def main():
+
+
+
+
+
+
+
+#--------------------------------------------------------------
+
+
+#--------------------------------------------------------------
+
+
+#--------------------------------------------------------------
+
+
+#--------------------------------------------------------------
+
+
+#--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+def createKKOnly(path):
     jenisKelamin = ['LAKI-LAKI','PEREMPUAN']
     agama = ['KRISTEN','KATOLIK','ISLAM','HINDU','BUDDHA','KONGHUCU']
     statusPerkawinan = ['KAWIN','BELUM KAWIN']
@@ -136,7 +168,6 @@ def main():
     txt_layer = Image.new("RGBA", base.size, (255, 255, 255, 0))
     draw = ImageDraw.Draw(txt_layer)
     nPerson = randint(1,10)
-    print(nPerson)
     noKK = ''
     for i in range(16):
         noKK += str(randint(0,9))
@@ -220,7 +251,10 @@ def main():
             temp = temp2 + temp[2:]
             tNik[0] = keyAwal + temp + keyAkhir
         if(tKewarganegaraan[0] == "WNI"):
-            tTempatLahir[0] = faker.city()
+            templateTempatLahir = faker.city().upper()
+            while(len(templateTempatLahir)>20):
+                templateTempatLahir = faker.city().upper()
+            tTempatLahir[0] = templateTempatLahir
 
         else:
             tTempatLahir[0] = fakerLuar.city()
@@ -433,9 +467,15 @@ def main():
 
         for i in range(nPerson):
             if(tKewarganegaraan[i] == "WNI"):
-                tTempatLahir[i] = faker.city().upper()
+                templateTempatLahir = faker.city().upper()
+                while(len(templateTempatLahir)>20):
+                    templateTempatLahir = faker.city().upper()
+                tTempatLahir[i] = templateTempatLahir
             else:
-                tTempatLahir[i] = fakerLuar.city().upper()
+                templateTempatLahir = fakerLuar.city().upper()
+                while(len(templateTempatLahir)>20):
+                    templateTempatLahir = fakerLuar.city().upper()
+                tTempatLahir[i] = templateTempatLahir
 
 
     #-------------------TEMLAH-----------------------
@@ -465,7 +505,8 @@ def main():
         for i in range(nPerson):
             if(tStatusHubungan[i] == "ANAK"):
                 tAyah[i] = tNamaAyah
-                tIbu[i] = random.choice(tNamaIstri)
+                if(tNamaIstri):
+                    tIbu[i] = random.choice(tNamaIstri)
             else:
                 if(tKewarganegaraan[i] == "WNI"):
                     tAyah[i] = faker.name_male().upper()
@@ -538,8 +579,21 @@ def main():
     draw = tanggalDrawer(draw,posTanggal,tDikeluarkanTanggal)
 
     out = Image.alpha_composite(base, txt_layer)
-    out.show()
-    out = out.save("1.png")
+    out.save(path)
+    return out
 
 #print(faker.address())
-main()
+
+def createKKComplete(path):
+    imgKKOnly = createKKOnly(path)
+    eng = matlab.engine.start_matlab()
+    #choose background for kk
+    listOfBackground = ["background/1.jpg","background/2.jpg","background/3.jpg"]
+    imgKKCompleted = eng.fullModified(path,random.choice(listOfBackground))
+
+
+n=1
+for i in range(n):
+    path = "result/" + str(i+1) + ".png"
+    createKKComplete(path)
+    print(i)

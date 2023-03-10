@@ -2,9 +2,9 @@ imgBg = imread("background\1.jpg");
 img = imread("1.png");
 
 [pBg,lBg] = size(imgBg);
-dense = randi(20)/100;
-imgTempered = addNoise(img,dense);
-imgTempered = rotateImg(imgTempered,(10-randi(5)));
+dense = randi()
+imgTempered = addNoise(img,)
+imgTempered = rotateImg(img,(10-randi(5)));
 imgTempered = changBackground(imgTempered);
 figure, imshow(imgTempered)
 [p,l] = size(imgTempered);
@@ -17,4 +17,4 @@ else
 end
 newImg = scaleImgToBackground(imgTempered,imgBg,scaling);
 figure,imshow(newImg);
-imwrite(newImg,"result/1.png")
+

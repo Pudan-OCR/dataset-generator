@@ -1,0 +1,35 @@
+function result = changBackground(img)
+    [p,l] = size(img);
+    Ra = img(:, :, 1);
+    Ga = img(:, :, 2);
+    Ba = img(:, :, 3);
+    
+    for i=1:p
+        for j=1:l
+            if (Ra(i,j)==0 && Ga(i,j)==0 && Ba(i,j)==0)
+                Ra(i,j)=122;
+                Ba(i,j)=122;
+                Ga(i,j)=122;
+            else
+                break
+            end
+        end
+    end
+    %{
+    for i=1:p
+        for j=1:l
+            if (Ra(p+1-1,l+1-j)==0 && Ga(p+1-i,l+1-j)==0 && Ba(p+1-i,l+1-j)==0)
+                Ra(p-i,l-j)=122;
+                Ba(p-i,l-j)=122;
+                Ga(p-i,l-j)=122;
+            else
+                break
+            end
+        end
+    end
+    %}
+
+    result = cat(3,Ra,Ga,Ba);
+    
+
+end
