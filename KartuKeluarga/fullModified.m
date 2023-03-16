@@ -1,10 +1,9 @@
-function result = fullModified(imgPath,backgroundPath)
+function result = fullModified(imgPath,backgroundPath,dense,angle)
     img = imread(imgPath);
     imgBg = imread(backgroundPath);
     [pBg,lBg] = size(imgBg);
-    dense = randi(20)/100;
     imgTempered = addNoise(img,dense);
-    imgTempered = rotateImg(imgTempered,(10-randi(5)));
+    imgTempered = rotateImg(imgTempered,angle);
     imgTempered = changBackground(imgTempered);
     [p,l] = size(imgTempered);
     scaling = 0.0;

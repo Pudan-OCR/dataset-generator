@@ -174,6 +174,7 @@ def createKKOnly(path):
 
     #----------INI LOGIC----------
     #inisialisasi info kk
+    tK = ''
     tNo = ''
     tNamaKepalaKeluarga = ''
     tAlamat = ''
@@ -236,10 +237,13 @@ def createKKOnly(path):
             if (i<4):
                 keyAkhir += str(randint(0,9))
         tNo = keyAwal
+        tK = keyAwal
         for i in range(10):
             tNo += str(randint(0,9))
+        for i in (7):
+            tK += str(randint(0,9))
         if(tJenisKelamin[0] == "LAKI-LAKI"):
-            temp = str(tTanggalLahir[i])
+            temp = str(tTanggalLahir[0])
             temp = temp.replace('-','',2)
             temp = temp[:4] +temp[6:]
             tNik[0] = keyAwal + temp + keyAkhir
@@ -457,8 +461,11 @@ def createKKOnly(path):
                 tNik[i] = keyAwal + temp + keyAkhir
         # No KK nya
         tNo = keyAwal
+        tK = keyAwal
         for i in range(10):
             tNo += str(randint(0,9))
+        for i in range(7):
+            tK += str(randint(0,9))
 
     #----------------NIK-------------------
 
@@ -505,7 +512,7 @@ def createKKOnly(path):
         for i in range(nPerson):
             if(tStatusHubungan[i] == "ANAK"):
                 tAyah[i] = tNamaAyah
-                if(tNamaIstri):
+                if(len(tNamaIstri)>=1):
                     tIbu[i] = random.choice(tNamaIstri)
             else:
                 if(tKewarganegaraan[i] == "WNI"):
@@ -534,6 +541,7 @@ def createKKOnly(path):
     tAlamat = faker.street_address().upper()
 
     #----------------------------------------------------------------------------------------------------------------
+    draw = kDrawer(draw,posK,tK)
     draw = noDrawer(draw,posNo,tNo)
     draw = locDrawer(draw,posAlamat,tAlamat)
     draw = locDrawer(draw,posRTRW,tRTRW)
@@ -572,12 +580,13 @@ def createKKOnly(path):
             draw = nokitDrawer(draw,posNoKit[i],tNoKitas[i])
 
         if(nPerson != 1):
-            draw = ayahDrawer(draw,posAyah[i],tAyah[i])
+            if(tAyah[i]!= 0):
+                draw = ayahDrawer(draw,posAyah[i],tAyah[i])
 
-            draw = ibuDrawer(draw,posIbu[i],tIbu[i])
+            if(tIbu[i]!=0):
+                draw = ibuDrawer(draw,posIbu[i],tIbu[i])
 
     draw = tanggalDrawer(draw,posTanggal,tDikeluarkanTanggal)
-
     out = Image.alpha_composite(base, txt_layer)
     out.save(path)
     return out
@@ -588,11 +597,13 @@ def createKKComplete(path):
     imgKKOnly = createKKOnly(path)
     eng = matlab.engine.start_matlab()
     #choose background for kk
-    listOfBackground = ["background/1.jpg","background/2.jpg","background/3.jpg"]
-    imgKKCompleted = eng.fullModified(path,random.choice(listOfBackground))
+    listOfBackground = ["background/1.jpg","background/2.jpg","background/3.jpg", "background/4.jpg", "background/5.jpg"]
+    dense = randint(1,20)/100
+    angle = randint(-5,5)
+    imgKKCompleted = eng.fullModified(path,random.choice(listOfBackground),dense,angle)
 
 
-n=1
+n=10
 for i in range(n):
     path = "result/" + str(i+1) + ".png"
     createKKComplete(path)
