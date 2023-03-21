@@ -120,7 +120,7 @@ class KTPGenerator:
         self.SKEW = 3
         self.NUM = 10
         self.BLUR = 2
-        self.SALTPEPPER = 10000
+        self.SALTPEPPER = 500000
 
     def skew(self):
         agl = args.skew if args.skew != None else self.SKEW
@@ -132,17 +132,19 @@ class KTPGenerator:
         rad = args.blur if args.blur != None else self.BLUR
         if rad == 0:
             return
-        self.out = self.out.filter(ImageFilter.GaussianBlur(random.uniform(0, rad)))
+        self.out = self.out.filter(ImageFilter.GaussianBlur(random.uniform(1.5, rad)))
     
     def saltAndPepper(self):
         max = args.salt_and_pepper if args.salt_and_pepper != None else self.SALTPEPPER
         row , col = self.out.size
-        num_of_pix = random.randint(300 , max)
+        num_of_pix = random.randint(100000 , max)
         for _ in range(num_of_pix):
             x = random.randint(0, row - 1)
             y = random.randint(0, col - 1)
-            n = random.randint(64, 128)
-            self.out.putpixel((x,y), (n, n, n, 255))
+            n1 = random.randint(0, 64)
+            n2 = random.randint(0, 64)
+            n3 = random.randint(0, 64)
+            self.out.putpixel((x,y), (n1, n2, n3, 255))
 
     def save(self, i):
         self.out.save(f'out/{i}.png')
