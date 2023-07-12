@@ -1,4 +1,4 @@
-function result = scaleImgToBackground(img,B,scaling)
+function [result, startP, startL] = scaleImgToBackground(img,B,scaling)
     A3 = imresize(img,scaling);    
     Ra = A3(:, :, 1);
     Ga = A3(:, :, 2);
@@ -27,10 +27,6 @@ function result = scaleImgToBackground(img,B,scaling)
     end    
     
     result = cat(3,Rb,Gb,Bb);
-    
-    %A4 = imrotate(A3,5);
-    
-
     %tempel hasil gambar ke background
 
 end
