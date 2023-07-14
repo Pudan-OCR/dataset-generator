@@ -178,8 +178,9 @@ class KTPGenerator:
             self.out.putpixel((x,y), (n1, n2, n3, 255))
 
     def save(self, i):
+        self.out = self.out.convert('RGB')
         self.out.save(f'out/image/img_{i}.jpg')
-        f=open(f'out/label/gt_img_{i}.txt')
+        f=open(f'out/label/gt_img_{i}.txt','w+')
         for i in range(len(self.boundingbox)):
             txt = ""
             for point in self.boundingbox[i]:
@@ -368,7 +369,7 @@ class KTPGenerator:
 if __name__ == "__main__":
     argParser = argparse.ArgumentParser()
     argParser.add_argument("-t", "--test", type=bool, help="True for test")
-    argParser.add_argument("-n", "--number", type=float, help="Number of generated dataset (default = 10)")
+    argParser.add_argument("-n", "--number", type=int, help="Number of generated dataset (default = 10)")
     argParser.add_argument("-s", "--skew", type=int, help="Max skew angle in degree (default= 3, 0 to switch off")
     argParser.add_argument("-b", "--blur", type=float, help="Max gaussian blur radius (default = 1.2, 0 to switch off")
     argParser.add_argument("-sp", "--salt_and_pepper", type=int, help="Salt and pepper density (default = 5000)")

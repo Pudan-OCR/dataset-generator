@@ -822,6 +822,7 @@ def createKKOnly(path):
 
     draw = tanggalDrawer(draw,posTanggal,tDikeluarkanTanggal)
     out = Image.alpha_composite(base, txt_layer)
+    out = out.convert('RGB')
     out.save(path)
     # for each in listBoundingBox:
     #     new_txt_layer = Image.new("RGBA", base.size, (255, 255, 255, 0))
@@ -866,6 +867,7 @@ def createKKComplete(path):
     # dense = randint(1,20)/100
     angle = randint(-3,3)
     img = Image.open(path)
+    img = img.convert('RGBA')
     width, height = img.size
 
     # add salt and pepper
@@ -877,11 +879,12 @@ def createKKComplete(path):
 
     # rotate image
     img = rotateImg(img,angle)
-    img.save(path)
+    
     width_after_rotate, heigh_after_rotate = img.size
     width_differ = width_after_rotate - width
     height_differ = heigh_after_rotate - height
-
+    img = img.convert('RGB')
+    img.save(path)
 
     #img.save(path)
     new_img = img
@@ -924,20 +927,21 @@ def createKKComplete(path):
     #     new_draw = new_draw.polygon(poly, outline ="blue")
     #     img_from_matlab = Image.alpha_composite(img_from_matlab, new_txt_layer)
     # img_from_matlab.show()
-
+    return listBoundingBox
     #upload the bounding box to txt file
 
-def writeBBToTxt(path,listbb):
+
+def writeBBToTxt(path,listbb:list):
     f= open(path,"w+")
     for row in listbb:
         text = str(int(row[0][0]))+','+str(int(row[0][1]))+','+str(int(row[1][0]))+','+str(int(row[1][1]))+','+str(int(row[2][0]))+','+str(int(row[2][1]))+','+str(int(row[3][0]))+','+str(int(row[3][1]))+','+row[4]
         f.write(text+"\n")
     f.close()
 
-n=1
+n=10
 for i in range(n):
-    pathImg = "ForTesting/" + str(i+1) + ".png"
-    pathBB = "ForTesting/gt_" + str(i+1) + ".txt"
+    pathImg = "result/image/img_" + str(i+1) + ".jpg"
+    pathBB = "result/label/gt_img_" + str(i+1) + ".txt"
     listbb = createKKComplete(pathImg)
     writeBBToTxt(pathBB,listbb)
     print(i)
