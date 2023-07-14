@@ -138,151 +138,153 @@ def createKKOnly(path):
 
     def kDrawer(draw,xy,text):
         font = ImageFont.truetype("Lexend-Light.ttf", 60)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(2885, 29),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(2885, 87),"K "+text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=2,spacing=120)
+        bblist = [(2885, 29),(right,top),(right,bottom),(2885, 87),"K "+text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=2)
         return draw
     def noDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 83)
-        w, h = draw.textsize(text, font= font)
-        bblist = [((1292,210)),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(1292,290),"No. "+text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=2,spacing=120)
+        bblist = [((1292,210)),(right,top),(right,bottom),(1292,290),"No. "+text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=2)
         return draw
     def nkkDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 37)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def locDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 37)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def tanggalDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 42)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def ttdDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 42)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def namaDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 30)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def nikDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 30)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def jkDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def temlahDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def tanlahDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def agamaDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def pendidikanDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def jepekDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def statperDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def shdkDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def kewDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def nopasDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def nokitDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def ayahDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
     def ibuDrawer(draw,xy,text):
         font = ImageFont.truetype("arial.ttf", 29)
-        w, h = draw.textsize(text, font= font)
-        bblist = [(xy[0]-5,xy[1]-5),(xy[0]+w+5,xy[1]-5),(xy[0]+w+5,xy[1]+h),(xy[0]-5,xy[1]+h),text]
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
+        bblist = [(left,top),(right,top),(right,bottom),(left,bottom),text]
         listBoundingBox.append(bblist)
         draw.text(xy, text, font=font, fill=(0, 0, 0, 255), anchor='lt', spacing=120, stroke_width=1)
         return draw
+
 
     faker = Faker('id_ID')
     fakerLuar = Faker()
@@ -867,7 +869,7 @@ def createKKComplete(path):
     width, height = img.size
 
     # add salt and pepper
-    denseSaltPepper = randint(1,20)/100
+    denseSaltPepper = float(randint(1,20)/100)
     img = saltAndPepper(img,denseSaltPepper)
 
     # add blur to image
