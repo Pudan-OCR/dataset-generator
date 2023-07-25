@@ -3,6 +3,7 @@ import random
 from faker import Faker
 import argparse
 import math
+import os
 
 TYPES = ["A", "BI", "BII", "C", "D"]
 GOLDA = ["A", "B", "AB", "O"]
@@ -240,7 +241,8 @@ class SIMGenerator:
             
     def save(self, i):
         self.out = self.out.convert('RGB')
-        self.out.save(f'detection/image/img_{i}.jpg')
+        detection_file_path = f'detection/image/img_{i}.jpg'
+        self.out.save(detection_file_path)
         f=open(f'detection/label/gt_img_{i}.txt','w+')
         for i in range(len(self.boundingbox)):
             # recogniton images
@@ -303,6 +305,12 @@ class SIMGenerator:
 
     def generate(self):
         n = args.number if args.number != None else self.NUM
+        image_path = args.image_path if args.image_path != None else "detection/image/"
+        label_path = args.label_path if args.label_path != None else "detection/label/"
+        recogniton_path = args.recognition_path if args.recognition_path != None else "recognition/train/"
+        os.makedirs(image_path, exist_ok=True)
+        os.makedirs(label_path, exist_ok=True)
+        os.makedirs(recogniton_path, exist_ok=True)
         rec_label_file = open(f'recognition/rec_gt_train.txt', 'w+')
         for i in range(n):
             self.create()
@@ -329,6 +337,9 @@ if __name__ == "__main__":
     argParser.add_argument("-s", "--skew", type=int, help="Max skew angle in degree (default= 3, 0 to switch off")
     argParser.add_argument("-b", "--blur", type=float, help="Max gaussian blur radius (default = 1.2, 0 to switch off")
     argParser.add_argument("-sp", "--salt_and_pepper", type=int, help="Salt and pepper density (default = 5000)")
+    argParser.add_argument("-ip", "--image_path", type=str, help="Path to save image (default = detection/image/)")
+    argParser.add_argument("-lp", "--label_path", type=str, help="Path to save label (default = detection/label/)")
+    argParser.add_argument("-rp", "--recognition_path", type=str, help="Path to save recognition dataset (default = recognition/train/)")
     args = argParser.parse_args()
     
     Generator = SIMGenerator("./test.jpg", args=args)
@@ -337,12 +348,3 @@ if __name__ == "__main__":
         Generator.test()
     else:
         Generator.generate()
-
-"""
-TODO
-skewNoise [v]
-greyishText [v]
-pinkNoise
-whiteNoise
-blurNoise
-"""
