@@ -128,6 +128,8 @@ class SIMGenerator:
         self.args = None
         self.boundingbox = []
         self.predicted = []
+        self.rec_labels = ""
+        self.rec_counter = 1
 
     def addLabel(self, draw, font, anchor, xy, text, stroke):
         left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor=anchor,stroke_width=stroke)
@@ -238,9 +240,19 @@ class SIMGenerator:
             
     def save(self, i):
         self.out = self.out.convert('RGB')
-        self.out.save(f'examples/image/img_{i}.jpg')
-        f=open(f'examples/label/gt_img_{i}.txt','w+')
+        self.out.save(f'detection/image/img_{i}.jpg')
+        f=open(f'detection/label/gt_img_{i}.txt','w+')
         for i in range(len(self.boundingbox)):
+            # recogniton images
+            points = self.boundingbox[i]
+            x1, y1 = points[0]
+            x3, y3 = points[2]
+            cropped_img = self.out.crop((x1, y1, x3, y3))
+            cropped_img.save(f'recognition/train/word_{self.rec_counter}.png')
+            self.rec_labels += f"recognition/train/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
+            self.rec_counter += 1
+
+            # detection label
             txt = ""
             for point in self.boundingbox[i]:
                 for each in point:
@@ -291,18 +303,22 @@ class SIMGenerator:
 
     def generate(self):
         n = args.number if args.number != None else self.NUM
+        rec_label_file = open(f'recognition/rec_gt_train.txt', 'w+')
         for i in range(n):
             self.create()
             self.saltAndPepper()
             self.blur()
             self.skewNoise()
             self.save(i)
+        rec_label_file.write(self.rec_labels)
+        rec_label_file.close()
 
     def test(self):
+        print("Hrusnya ga disini")
         self.create()
         self.saltAndPepper()
         self.blur()
-        #self.skewNoise()
+        self.skewNoise()
         self.showBoundingBox()
 
 if __name__ == "__main__":
