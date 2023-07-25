@@ -3,6 +3,7 @@ import random
 from faker import Faker
 import argparse
 import math
+import os
 
 PROVINSI = [
     "NANGGROE ACEH DARUSSALAM",
@@ -178,17 +179,20 @@ class KTPGenerator:
             self.out.putpixel((x,y), (n1, n2, n3, 255))
 
     def save(self, i):
+        image_path = args.image_path if args.image_path != None else "out/image/"
+        label_path = args.label_path if args.label_path != None else "out/label/"
+        os.makedirs(image_path, exist_ok=True)
+        os.makedirs(label_path, exist_ok=True)
         self.out = self.out.convert('RGB')
-        self.out.save(f'out/image/img_{i}.jpg')
-        f=open(f'out/label/gt_img_{i}.txt','w+')
-        for i in range(len(self.boundingbox)):
-            txt = ""
-            for point in self.boundingbox[i]:
-                for each in point:
-                    txt += str(int(each)) + ','
-            txt += self.predicted[i]
-            f.write(txt+"\n")
-        f.close()
+        self.out.save(f'{image_path}/img_{i}.jpg')
+        with open(f'{label_path}/gt_img_{i}.txt','w+') as f:
+            for i in range(len(self.boundingbox)):
+                txt = ""
+                for point in self.boundingbox[i]:
+                    for each in point:
+                        txt += str(int(each)) + ','
+                txt += self.predicted[i]
+                f.write(txt+"\n")
 
     def showBoundingBox(self):
         for poly in self.boundingbox:
@@ -328,6 +332,8 @@ if __name__ == "__main__":
     argParser.add_argument("-s", "--skew", type=int, help="Max skew angle in degree (default= 3, 0 to switch off")
     argParser.add_argument("-b", "--blur", type=float, help="Max gaussian blur radius (default = 1.2, 0 to switch off")
     argParser.add_argument("-sp", "--salt_and_pepper", type=int, help="Salt and pepper density (default = 5000)")
+    argParser.add_argument("-ip", "--image_path", type=str, help="Path to save image (default = out/image/)")
+    argParser.add_argument("-lp", "--label_path", type=str, help="Path to save label (default = out/label/)")
     args = argParser.parse_args()
 
     Generator = KTPGenerator("test.jpg", args=args)
