@@ -4,3 +4,5 @@ KartuKeluarga/temporaryImg.png
 .idea/
 sim/detection/*
 sim/recognition/*
+ktp/detection/*
+ktp/recognition/*
