@@ -129,87 +129,76 @@ class SIMGenerator:
         self.boundingbox = []
         self.predicted = []
 
+    def addLabel(self, draw, font, anchor, xy, text, stroke):
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor=anchor,stroke_width=stroke)
+        bb = [(left-7,top-7),(right+7,top-7),(right+7,bottom+7),(left-7,bottom+7)]
+        self.boundingbox.append(bb)
+        self.predicted.append(text)
+
+    def addLabel2(self, draw, font, anchor, xy, text, stroke, leftTop, leftBottom):
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor=anchor,stroke_width=stroke)
+        bb = [(leftTop[0]-7,leftTop[1]-7),(right+7,top-7),(right+7,bottom+7),(leftBottom[0]-7,leftBottom[1]+7)]
+        self.boundingbox.append(bb)
+        self.predicted.append(text)
+
     def typeDrawer(self, type):
         font = ImageFont.truetype("arial.ttf", 56)
         self.draw.text((550, 85), type, font=font, fill=(0, 0, 0, 220), anchor='lt',  stroke_width=2)
-        left,top,right,bottom = self.draw.textbbox((550, 85),type, font= font, anchor='lt',stroke_width=2)
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(type)
+        self.addLabel(self.draw,font,'lt',(550, 85),type,2)
+        
 
     def namaDrawer(self, name):
         font = ImageFont.truetype("./font/arial-bold.ttf", 23)
         self.draw.text((250, 177), name, font=font, fill=(0, 0, 0, 220), anchor='lt')
-        left,top,right,bottom = self.draw.textbbox((250, 177),name, font= font, anchor='lt')
-        bb = [(220, 175),(right,top),(right,bottom),(219, 193)]
-        self.boundingbox.append(bb)
-        self.predicted.append(name)
+        self.addLabel2(self.draw,font,'lt',(250, 177),name,1,(220, 175),(219, 193))
+    
 
     def ttlDrawer(self, ttl):
         font = ImageFont.truetype("./font/arial-bold.ttf", 23)
         self.draw.text((250, 205), ttl, font=font, fill=(0, 0, 0, 220), anchor='lt')
-        left,top,right,bottom = self.draw.textbbox((250, 205),ttl, font= font, anchor='lt')
-        bb = [(220, 202),(right,top),(right,bottom),(219, 223)]
-        self.boundingbox.append(bb)
-        self.predicted.append(ttl)
+        self.addLabel2(self.draw,font,'lt',(250, 205),ttl,1,(220, 202),(219, 223))
+
 
     def golGenderDrawer(self, golgen):
         font = ImageFont.truetype("./font/arial-bold.ttf", 23)
         self.draw.text((250, 233), golgen, font=font, fill=(0, 0, 0, 220), anchor='lt')
-        left,top,right,bottom = self.draw.textbbox((250, 233),golgen, font= font, anchor='lt')
-        bb = [(217, 229),(right,top),(right,bottom),(216, 251)]
-        self.boundingbox.append(bb)
-        self.predicted.append(golgen)
+        self.addLabel2(self.draw,font,'lt',(250, 233),golgen,1,(217, 229),(216, 251))
 
     def almtDrawer(self, line1, line2, line3):
         font = ImageFont.truetype("./font/arial-bold.ttf", 23)
         self.draw.text((250, 261), line1, font=font, fill=(0, 0, 0, 220), anchor='lt')
-        left,top,right,bottom = self.draw.textbbox((250, 261),line1, font= font, anchor='lt')
-        bb = [(216, 260),(right,top),(right,bottom),(215, 279)]
-        self.boundingbox.append(bb)
-        self.predicted.append(line1)
+        self.addLabel2(self.draw,font,'lt',(250, 261),line1,1,(216, 260),(215, 279))
+       
         self.draw.text((250, 289), line2, font=font, fill=(0, 0, 0, 220), anchor='lt')
-        left,top,right,bottom = self.draw.textbbox((250, 289),line2, font= font, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(line2)
+        self.addLabel(self.draw,font,'lt',(250, 289),line2,1)
+        
         self.draw.text((250, 317), line3, font=font, fill=(0, 0, 0, 220), anchor='lt')
-        left,top,right,bottom = self.draw.textbbox((250, 317),line3, font= font, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(line3)
+        self.addLabel(self.draw,font,'lt',(250, 317),line3,1)
+        
 
     def profDrawer(self, prof):
         font = ImageFont.truetype("./font/arial-bold.ttf", 23)
         self.draw.text((250, 343), prof, font=font, fill=(0, 0, 0, 220), anchor='lt')
-        left,top,right,bottom = self.draw.textbbox((250, 343),prof, font= font, anchor='lt')
-        bb = [(217, 340),(right,top),(right,bottom),(216, 360)]
-        self.boundingbox.append(bb)
-        self.predicted.append(prof)
+        self.addLabel2(self.draw,font,'lt',(250, 343),prof,1,(217, 340),(216, 360))
+        
 
     def polDrawer(self, pol):
         font = ImageFont.truetype("./font/arial-bold.ttf", 23)
         self.draw.text((250, 370), pol, font=font, fill=(0, 0, 0, 220), anchor='lt')
-        left,top,right,bottom = self.draw.textbbox((250, 370),pol, font= font, anchor='lt')
-        bb = [(218, 367),(right,top),(right,bottom),(217, 389)]
-        self.boundingbox.append(bb)
-        self.predicted.append(pol)
+        self.addLabel2(self.draw,font,'lt',(250, 370),pol,1,(218, 367),(217, 389))
+    
 
     def noDrawer(self, no):
         font = ImageFont.truetype("./font/arial-bold.ttf", 25)
         self.draw.text((565, 150), no, font=font, fill=(0, 0, 0, 220), anchor='mm')
-        left,top,right,bottom = self.draw.textbbox((565, 150),no, font= font, anchor='mm')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(no)
+        self.addLabel(self.draw,font,'mm',(565, 150),no,1)
+    
 
     def tglBwhDrawer(self, tgl):
         font = ImageFont.truetype("./font/arial-bold.ttf", 23)
         self.draw.text((590, 432), tgl, font=font, fill=(0, 0, 0, 220), anchor='mm')
-        left,top,right,bottom = self.draw.textbbox((590, 432),tgl, font= font, anchor='mm')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(tgl)
+        self.addLabel(self.draw,font,'mm',(590, 432),tgl,1)
+        
 
     def skewNoise(self):
         agl = args.skew if args.skew != None else self.SKEW
@@ -271,9 +260,9 @@ class SIMGenerator:
     def create(self):
         self.txt_layer = Image.new("RGBA", self.base.size, (255, 255, 255, 0))
         self.draw = ImageDraw.Draw(self.txt_layer)
-        self.boundingbox = [[(190, 31), (437, 33), (436, 69), (190, 67)],
-                            [(487, 52), (670, 57), (670, 78), (487, 74)],
-                            [(192, 72), (443, 75), (443, 95), (192, 92)]]
+        self.boundingbox = [[(185, 26), (442, 28), (441, 74), (185, 72)],
+                            [(482, 47), (675, 52), (675, 83), (482, 79)],
+                            [(187, 67), (448, 70), (448, 100), (187, 97)]]
         self.predicted = ["INDONESIA","DRIVING LICENSE","SURAT IZIN MENGEMUDI"]
 
         type    = random.choice(TYPES)
@@ -313,7 +302,7 @@ class SIMGenerator:
         self.create()
         self.saltAndPepper()
         self.blur()
-        self.skewNoise()
+        #self.skewNoise()
         self.showBoundingBox()
 
 if __name__ == "__main__":

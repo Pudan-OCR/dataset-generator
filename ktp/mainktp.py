@@ -197,23 +197,29 @@ class KTPGenerator:
             temp_draw = temp_draw.polygon(poly,outline="blue")
             self.out = Image.alpha_composite(self.out,bb_layer)
         self.out.show()
+
+    def addLabel(self, draw, font, anchor, xy, text):
+        left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor=anchor)
+        bb = [(left-10,top-10),(right+10,top-10),(right+10,bottom+10),(left-10,bottom+10)]
+        self.boundingbox.append(bb)
+        self.predicted.append(text)
     
     def create(self):
         self.txt_layer = Image.new("RGBA", self.base.size, (255, 255, 255, 0))
-        self.boundingbox = [[(73, 271), (307, 271), (307, 379), (73, 379)],
-                            [(73, 449), (263, 449), (263, 501), (73, 501)],
-                            [(85, 530), (585, 530), (585, 589), (85, 589)],
-                            [(82, 615), (491, 615), (491, 664), (82, 664)],
-                            [(1416, 609), (1752, 609), (1752, 667), (1416, 667)],
-                            [(70, 691), (301, 691), (301, 752), (70, 752)],
-                            [(234, 772), (471, 772), (471, 834), (234, 834)],
-                            [(232, 851), (530, 857), (528, 918), (231, 912)],
-                            [(234, 938), (594, 938), (594, 997), (234, 997)],
-                            [(66, 1027), (296, 1016), (299, 1080), (69, 1091)],
-                            [(70, 1105), (644, 1105), (644, 1163), (70, 1163)],
-                            [(68, 1183), (378, 1189), (376, 1254), (67, 1247)],
-                            [(65, 1268), (638, 1271), (637, 1332), (64, 1329)],
-                            [(68, 1346), (533, 1356), (532, 1417), (67, 1407)]]
+        self.boundingbox = [[(68, 265), (312, 265), (312, 384), (68, 384)],
+                            [(63, 440), (273, 440), (273, 511), (63, 511)],
+                            [(75, 520), (595, 520), (595, 599), (75, 599)],
+                            [(72, 605), (501, 605), (501, 674), (72, 674)],
+                            [(1406, 599), (1762, 599), (1762, 677), (1406, 677)],
+                            [(60, 681), (311, 681), (311, 762), (60, 762)],
+                            [(224, 762), (481, 762), (481, 844), (224, 844)],
+                            [(222, 841), (540, 847), (538, 928), (221, 922)],
+                            [(224, 928), (604, 928), (604, 1007), (224, 1007)],
+                            [(56, 1017), (306, 1016), (309, 1100), (59, 1101)],
+                            [(60, 1095), (654, 1095), (654, 1173), (60, 1173)],
+                            [(58, 1173), (388, 1179), (386, 1264), (57, 1257)],
+                            [(55, 1258), (648, 1261), (647, 1342), (54, 1339)],
+                            [(58, 1336), (543, 1346), (542, 1427), (57, 1417)]]
         self.predicted = ["NIK","Nama","Tempat/Tgl Lahir","Jenis Kelamin","Gol Darah","Alamat","RT/RW","Kel/Des","Kecamatan",
                           "Agama","Status Perkawinan","Pekerjaan","Kewarganegaraan","Berlaku Hingga"]
         draw = ImageDraw.Draw(self.txt_layer)
@@ -242,112 +248,61 @@ class KTPGenerator:
         tgl         = self.fake.date(pattern="%d-%m-%Y")
         
         draw.text((1463, 55), provinsi, font=font_judul, fill=(12,42,59,255), anchor='mt')
-        left,top,right,bottom = draw.textbbox((1463,55),provinsi, font= font_judul, anchor='mt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(provinsi)
-
+        self.addLabel(draw,font_judul,'mt',(1463,55),provinsi)
+        
         draw.text((1463, 149), kabupaten, font=font_judul, fill=(12,42,59,255), anchor='mt')
-        left,top,right,bottom = draw.textbbox((1463, 149),kabupaten, font= font_judul, anchor='mt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(kabupaten)
+        self.addLabel(draw,font_judul,'mt',(1463, 149),kabupaten)
 
         draw.text((703, 280), nik, font=font_nik, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((703, 280),nik, font= font_nik, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(nik)
+        self.addLabel(draw,font_nik,'lt',(703, 280),nik)
 
         draw.text((775, 453), nama, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 453),nama, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(nama)
+        self.addLabel(draw,font_data,'lt',(775, 453),nama)
 
         draw.text((775, 535), ttl, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 535),ttl, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(ttl)
+        self.addLabel(draw,font_data,'lt',(775, 535),ttl)
 
         draw.text((775, 613), gender, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 613),gender, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(gender)
+        self.addLabel(draw,font_data,'lt',(775, 613),gender)
 
         draw.text((1852, 641), golda, font=font_data, fill=(12,42,59,255), anchor='lm')
-        left,top,right,bottom = draw.textbbox((1852, 641),golda, font= font_data, anchor='lm')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(golda)
+        self.addLabel(draw,font_data,'lm',(1852, 641),golda)
 
         draw.text((775, 699), alamat, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 699),alamat, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(alamat)
+        self.addLabel(draw,font_data,'lt',(775, 699),alamat)
 
         draw.text((775, 781), rt_rw, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 781),rt_rw, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(rt_rw)
+        self.addLabel(draw,font_data,'lt',(775, 781),rt_rw)
 
         draw.text((775, 861), kelurahan, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 861),kelurahan, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(kelurahan)
+        self.addLabel(draw,font_data,'lt',(775, 861),kelurahan)
 
         draw.text((775, 943), kecamatan, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 943),kecamatan, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(kecamatan)
+        self.addLabel(draw,font_data,'lt',(775, 943),kecamatan)
 
         draw.text((775, 1023), agama, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 1023),agama, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(agama)
+        self.addLabel(draw,font_data,'lt',(775, 1023),agama)
 
         draw.text((775, 1109), perkawinan, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 1109),perkawinan, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(perkawinan)
+        self.addLabel(draw,font_data,'lt',(775, 1109),perkawinan)
 
         draw.text((775, 1187), pekerjaan, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 1187),pekerjaan, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(pekerjaan)
+        self.addLabel(draw,font_data,'lt',(775, 1187),pekerjaan)
 
         draw.text((775, 1269), kewarganegaraan, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 1269),kewarganegaraan, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(kewarganegaraan)
+        self.addLabel(draw,font_data,'lt',(775, 1269),kewarganegaraan)
+
 
         draw.text((775, 1351), berlaku, font=font_data, fill=(12,42,59,255), anchor='lt')
-        left,top,right,bottom = draw.textbbox((775, 1351),berlaku, font= font_data, anchor='lt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(berlaku)
+        self.addLabel(draw,font_data,'lt',(775, 1351),berlaku)
+
 
         draw.text((2387, 1227), tempat, font=font_data, fill=(12,42,59,255), anchor='mt')
-        left,top,right,bottom = draw.textbbox((2387, 1227),tempat, font= font_data, anchor='mt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(tempat)
+        self.addLabel(draw,font_data,'mt',(2387, 1227),tempat)
 
         draw.text((2387, 1313), tgl, font=font_data, fill=(12,42,59,255), anchor='mt')
-        left,top,right,bottom = draw.textbbox((2387, 1313),tgl, font= font_data, anchor='mt')
-        bb = [(left,top),(right,top),(right,bottom),(left,bottom)]
-        self.boundingbox.append(bb)
-        self.predicted.append(tgl)
+        self.addLabel(draw,font_data,'mt',(2387, 1313),tgl)
+
         self.blur()
         self.out = Image.alpha_composite(self.base, self.txt_layer)
 
@@ -363,7 +318,7 @@ class KTPGenerator:
     def test(self):
         self.create()
         self.saltAndPepper()
-        self.skew()
+        #self.skew()
         self.showBoundingBox()
 
 if __name__ == "__main__":
