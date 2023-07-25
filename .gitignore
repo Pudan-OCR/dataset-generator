@@ -1,5 +1,8 @@
 sim/out/*
 KartuKeluarga/result/*
+KartuKeluarga/out/*
+KartuKeluarga/recognition/*
+KartuKeluarga/detection/*
 KartuKeluarga/temporaryImg.png
 .idea/
 sim/detection/*

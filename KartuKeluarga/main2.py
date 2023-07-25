@@ -168,6 +168,11 @@ class KKGenerator:
         self.txt_layer = None
         self.boundingbox = []
         self.predicted = []
+        self.rec_labels = ""
+        self.rec_counter = 1
+        self.image_path = args.image_path if args.image_path != None else "detection/image/"
+        self.label_path = args.label_path if args.label_path != None else "detection/label/"
+        self.recogniton_path = args.recognition_path if args.recognition_path != None else "recognition/"
     
     def addLabel(self,draw,font,xy,text):
         left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor='lt', stroke_width=1,spacing=120)
@@ -326,10 +331,22 @@ class KKGenerator:
             self.out.putpixel((x,y), (n1, n2, n3, 255))
 
     def save(self, i):
-        self.out = self.out.convert('RGB')
-        self.out.save(f'out/image/img_{i}.jpg')
-        f=open(f'out/label/gt_img_{i}.txt','w+')
+        out = self.image.convert('RGB')
+
+        out.save(f'{self.image_path}img_{i}.jpg')
+        f=open(f'{self.label_path}gt_img_{i}.txt','w+')
+
         for i in range(len(self.boundingbox)):
+            # recognition images & labels
+            points = self.boundingbox[i]
+            x1, y1 = points[0]
+            x3, y3 = points[2]
+            cropped_img = out.crop((x1, y1, x3, y3))
+            cropped_img.save(f'{self.recogniton_path}train/word_{self.rec_counter}.png')
+            self.rec_labels += f"{self.recogniton_path}train/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
+            self.rec_counter += 1
+            
+            # detection labels
             txt = ""
             for point in self.boundingbox[i]:
                 for each in point:
@@ -490,34 +507,34 @@ class KKGenerator:
             n3 = random.randint(0, 64)
             self.image.putpixel((x,y), (n1, n2, n3, 255))
     
-    def saveImage(self,i):
-        try:
-            os.makedirs("out/image")
-        except FileExistsError:
-            # directory already exists
-            pass 
-        out = self.image.convert('RGB')
-        out.save(f'out/image/img_{i}.jpg')
+    # def saveImage(self,i):
+    #     try:
+    #         os.makedirs(self.image_path)
+    #     except FileExistsError:
+    #         # directory already exists
+    #         pass 
+    #     out = self.image.convert('RGB')
+    #     out.save(f'{self.image_path}img_{i}.jpg')
     
-    def saveLabel(self,i):
-        try:
-            os.makedirs("out/label")
-        except FileExistsError:
-            # directory already exists
-            pass 
-        f=open(f'out/label/gt_img_{i}.txt','w+')
-        for i in range(len(self.boundingbox)):
-            txt = ""
-            for point in self.boundingbox[i]:
-                for each in point:
-                    txt += str(int(each)) + ','
-            txt += self.predicted[i]
-            f.write(txt+"\n")
-        f.close()
+    # def saveLabel(self,i):
+    #     try:
+    #         os.makedirs(self.label_path)
+    #     except FileExistsError:
+    #         # directory already exists
+    #         pass 
+    #     f=open(f'{self.label_path}gt_img_{i}.txt','w+')
+    #     for i in range(len(self.boundingbox)):
+    #         txt = ""
+    #         for point in self.boundingbox[i]:
+    #             for each in point:
+    #                 txt += str(int(each)) + ','
+    #         txt += self.predicted[i]
+    #         f.write(txt+"\n")
+    #     f.close()
 
-    def save(self, i): 
-        self.saveImage(i)
-        self.saveLabel(i)
+    # def save(self, i): 
+    #     self.saveImage(i)
+    #     self.saveLabel(i)
 
 
     def create(self):
@@ -954,6 +971,10 @@ class KKGenerator:
 
     def generate(self):
         n = args.number if args.number != None else self.NUM
+        os.makedirs(self.image_path, exist_ok=True)
+        os.makedirs(self.label_path, exist_ok=True)
+        os.makedirs(f"{self.recogniton_path}/train", exist_ok=True)
+        rec_label_file = open(f'{self.recogniton_path}/rec_gt_train.txt', 'w+')
         for i in range(n):
             self.create()
             self.addBlur()
@@ -961,6 +982,8 @@ class KKGenerator:
             self.rotateImg()
             self.rescaleImg()
             self.save(i)
+        rec_label_file.write(self.rec_labels)
+        rec_label_file.close()
 
     def test(self):
         self.create()
@@ -977,6 +1000,9 @@ if __name__ == "__main__":
     argParser.add_argument("-s", "--skew", type=int, help="Max skew angle in degree (default= 3, 0 to switch off")
     argParser.add_argument("-b", "--blur", type=float, help="Max gaussian blur radius (default = 1.2, 0 to switch off")
     argParser.add_argument("-sp", "--salt_and_pepper", type=int, help="Salt and pepper density (default = 5000)")
+    argParser.add_argument("-ip", "--image_path", type=str, help="Path to save image (default = detection/image/)")
+    argParser.add_argument("-lp", "--label_path", type=str, help="Path to save label (default = detection/label/)")
+    argParser.add_argument("-rp", "--recognition_path", type=str, help="Path to save recognition dataset (default = recognition/)")
     args = argParser.parse_args()
 
     Generator = KKGenerator('kk_cleanup(2).jpg', args=args)
