@@ -131,6 +131,9 @@ class SIMGenerator:
         self.predicted = []
         self.rec_labels = ""
         self.rec_counter = 1
+        self.image_path = args.image_path if args.image_path != None else "detection/image/"
+        self.label_path = args.label_path if args.label_path != None else "detection/label/"
+        self.recogniton_path = args.recognition_path if args.recognition_path != None else "recognition/"
 
     def addLabel(self, draw, font, anchor, xy, text, stroke):
         left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor=anchor,stroke_width=stroke)
@@ -241,17 +244,17 @@ class SIMGenerator:
             
     def save(self, i):
         self.out = self.out.convert('RGB')
-        detection_file_path = f'detection/image/img_{i}.jpg'
+        detection_file_path = f'{self.image_path}/img_{i}.jpg'
         self.out.save(detection_file_path)
-        f=open(f'detection/label/gt_img_{i}.txt','w+')
+        f=open(f'{self.label_path}/gt_img_{i}.txt','w+')
         for i in range(len(self.boundingbox)):
-            # recogniton images
+            # recogniton images & labels
             points = self.boundingbox[i]
             x1, y1 = points[0]
             x3, y3 = points[2]
             cropped_img = self.out.crop((x1, y1, x3, y3))
-            cropped_img.save(f'recognition/train/word_{self.rec_counter}.png')
-            self.rec_labels += f"recognition/train/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
+            cropped_img.save(f'{self.recogniton_path}train/word_{self.rec_counter}.png')
+            self.rec_labels += f"{self.recogniton_path}train/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
             self.rec_counter += 1
 
             # detection label
@@ -305,13 +308,10 @@ class SIMGenerator:
 
     def generate(self):
         n = args.number if args.number != None else self.NUM
-        image_path = args.image_path if args.image_path != None else "detection/image/"
-        label_path = args.label_path if args.label_path != None else "detection/label/"
-        recogniton_path = args.recognition_path if args.recognition_path != None else "recognition/train/"
-        os.makedirs(image_path, exist_ok=True)
-        os.makedirs(label_path, exist_ok=True)
-        os.makedirs(recogniton_path, exist_ok=True)
-        rec_label_file = open(f'recognition/rec_gt_train.txt', 'w+')
+        os.makedirs(self.image_path, exist_ok=True)
+        os.makedirs(self.label_path, exist_ok=True)
+        os.makedirs(f"{self.recogniton_path}/train", exist_ok=True)
+        rec_label_file = open(f'{self.recogniton_path}/rec_gt_train.txt', 'w+')
         for i in range(n):
             self.create()
             self.saltAndPepper()
@@ -339,7 +339,7 @@ if __name__ == "__main__":
     argParser.add_argument("-sp", "--salt_and_pepper", type=int, help="Salt and pepper density (default = 5000)")
     argParser.add_argument("-ip", "--image_path", type=str, help="Path to save image (default = detection/image/)")
     argParser.add_argument("-lp", "--label_path", type=str, help="Path to save label (default = detection/label/)")
-    argParser.add_argument("-rp", "--recognition_path", type=str, help="Path to save recognition dataset (default = recognition/train/)")
+    argParser.add_argument("-rp", "--recognition_path", type=str, help="Path to save recognition dataset (default = recognition/)")
     args = argParser.parse_args()
     
     Generator = SIMGenerator("./test.jpg", args=args)
