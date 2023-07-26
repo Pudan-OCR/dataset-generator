@@ -112,6 +112,21 @@ PEKERJAAN = [
     "WIRASWASTA"
 ]
 
+def get_latest_folder(path):
+    # Normalize the path to handle different path separators (e.g., / or \)
+    normalized_path = os.path.normpath(path)
+
+    # Split the path into individual folder names
+    folders = normalized_path.split(os.path.sep)
+
+    # Filter out empty strings (in case of multiple separators)
+    folders = [folder for folder in folders if folder]
+
+    # Get the latest folder name (the last element of the list)
+    latest_folder = folders[-1]
+
+    return latest_folder
+
 def rotate_dot(x, y, angle):
     # Convert angle to radians
     angle_rad = math.radians(angle)
@@ -142,7 +157,7 @@ class KTPGenerator:
         self.rec_labels = ""
         self.rec_counter = 1
         self.detection_path = args.detection_path if args.detection_path != None else "detection/"
-        self.recogniton_path = args.recognition_path if args.recognition_path != None else "recognition/"
+        self.recogniton_path = args.recognition_path if args.recognition_path != None else "recognition"
         self.is_detection = args.is_detection if args.is_detection != None else False
         self.is_recognition = args.is_recognition if args.is_recognition != None else False
 
@@ -199,7 +214,7 @@ class KTPGenerator:
                 x3, y3 = points[2]
                 cropped_img = self.out.crop((x1, y1, x3, y3))
                 cropped_img.save(f'{self.recogniton_path}/word_{self.rec_counter}.png')
-                self.rec_labels += f"/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
+                self.rec_labels += f"{get_latest_folder(self.recogniton_path)}/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
                 self.rec_counter += 1
 
             # detection labels
