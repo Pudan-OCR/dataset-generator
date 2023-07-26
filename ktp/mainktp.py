@@ -143,7 +143,7 @@ class KTPGenerator:
         self.rec_counter = 1
         self.detection_path = args.detection_path if args.detection_path != None else "detection/"
         self.recogniton_path = args.recognition_path if args.recognition_path != None else "recognition/"
-        self.is_detectiion = args.is_detection if args.is_detection != None else False
+        self.is_detection = args.is_detection if args.is_detection != None else False
         self.is_recognition = args.is_recognition if args.is_recognition != None else False
 
     def skew(self):
@@ -186,7 +186,7 @@ class KTPGenerator:
 
     def save(self, i):
         self.out = self.out.convert('RGB')
-        if (self.is_detectiion):
+        if (self.is_detection):
             detection_file_path = f'{self.detection_path}image/img_{i}.jpg'
             self.out.save(detection_file_path)
             f=open(f'{self.detection_path}label/gt_img_{i}.txt','w+')
@@ -203,7 +203,7 @@ class KTPGenerator:
                 self.rec_counter += 1
 
             # detection labels
-            if self.is_detectiion:
+            if self.is_detection:
                 txt = ""
                 for point in self.boundingbox[i]:
                     for each in point:
@@ -211,7 +211,7 @@ class KTPGenerator:
                 txt += self.predicted[i]
                 f.write(txt+"\n")
         
-        if (self.is_detectiion):
+        if (self.is_detection):
             f.close()
 
     def showBoundingBox(self):
@@ -346,13 +346,13 @@ class KTPGenerator:
 
     def generate(self):
         n = args.number if args.number != None else self.NUM
-        if (self.is_detectiion):
+        if (self.is_detection):
             os.makedirs(f"{self.detection_path}image/", exist_ok=True)
             os.makedirs(f"{self.detection_path}label/", exist_ok=True)
 
         if (self.is_recognition):
-            os.makedirs(f"{self.recogniton_path}train", exist_ok=True)
-            rec_label_file = open(f'{self.recogniton_path}rec_gt_train.txt', 'w+')
+            os.makedirs(f"{self.recogniton_path}", exist_ok=True)
+            rec_label_file = open(f'{self.recogniton_path}_label.txt', 'w+')
         
         for i in range(n):
             self.create()
