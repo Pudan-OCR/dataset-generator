@@ -141,9 +141,10 @@ class KTPGenerator:
         self.SALTPEPPER = 500000
         self.rec_labels = ""
         self.rec_counter = 1
+        self.detection_path = args.detection_path if args.detection_path != None else "detection/"
         self.recogniton_path = args.recognition_path if args.recognition_path != None else "recognition/"
-        self.image_path = args.image_path if args.image_path != None else "detection/image/"
-        self.label_path = args.label_path if args.label_path != None else "detection/label/"
+        self.is_detectiion = args.is_detection if args.is_detection != None else False
+        self.is_recognition = args.is_recognition if args.is_recognition != None else False
 
     def skew(self):
         agl = args.skew if args.skew != None else self.SKEW
@@ -185,25 +186,33 @@ class KTPGenerator:
 
     def save(self, i):
         self.out = self.out.convert('RGB')
-        self.out.save(f'{self.image_path}/img_{i}.jpg')
-        with open(f'{self.label_path}/gt_img_{i}.txt','w+') as f:
-            for i in range(len(self.boundingbox)):
-                # recognition images & labels
+        if (self.is_detectiion):
+            detection_file_path = f'{self.detection_path}image/img_{i}.jpg'
+            self.out.save(detection_file_path)
+            f=open(f'{self.detection_path}label/gt_img_{i}.txt','w+')
+
+        for i in range(len(self.boundingbox)):
+            # recognition images & labels
+            if (self.is_recognition):
                 points = self.boundingbox[i]
                 x1, y1 = points[0]
                 x3, y3 = points[2]
                 cropped_img = self.out.crop((x1, y1, x3, y3))
                 cropped_img.save(f'{self.recogniton_path}train/word_{self.rec_counter}.png')
-                self.rec_labels += f"{self.recogniton_path}train/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
+                self.rec_labels += f"train/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
                 self.rec_counter += 1
 
-                # detection labels
+            # detection labels
+            if self.is_detectiion:
                 txt = ""
                 for point in self.boundingbox[i]:
                     for each in point:
                         txt += str(int(each)) + ','
                 txt += self.predicted[i]
                 f.write(txt+"\n")
+        
+        if (self.is_detectiion):
+            f.close()
 
     def showBoundingBox(self):
         for poly in self.boundingbox:
@@ -324,17 +333,23 @@ class KTPGenerator:
 
     def generate(self):
         n = args.number if args.number != None else self.NUM
-        os.makedirs(self.image_path, exist_ok=True)
-        os.makedirs(self.label_path, exist_ok=True)
-        os.makedirs(self.recogniton_path, exist_ok=True)
-        rec_label_file = open(f'{self.recogniton_path}/rec_gt_train.txt', 'w+')
+        if (self.is_detectiion):
+            os.makedirs(f"{self.detection_path}image/", exist_ok=True)
+            os.makedirs(f"{self.detection_path}label/", exist_ok=True)
+
+        if (self.is_recognition):
+            os.makedirs(f"{self.recogniton_path}train", exist_ok=True)
+            rec_label_file = open(f'{self.recogniton_path}rec_gt_train.txt', 'w+')
+        
         for i in range(n):
             self.create()
             self.saltAndPepper()
             self.skew()
             self.save(i)
-        rec_label_file.write(self.rec_labels)
-        rec_label_file.close()
+
+        if (self.is_recognition):
+            rec_label_file.write(self.rec_labels)
+            rec_label_file.close()
 
     def test(self):
         self.create()
@@ -344,19 +359,21 @@ class KTPGenerator:
 
 if __name__ == "__main__":
     argParser = argparse.ArgumentParser()
-    argParser.add_argument("-t", "--test", type=bool, help="True for test")
+    argParser.add_argument("-t", "--test", action='store_true', help="True for test")
     argParser.add_argument("-n", "--number", type=int, help="Number of generated dataset (default = 10)")
     argParser.add_argument("-s", "--skew", type=int, help="Max skew angle in degree (default= 3, 0 to switch off")
     argParser.add_argument("-b", "--blur", type=float, help="Max gaussian blur radius (default = 1.2, 0 to switch off")
     argParser.add_argument("-sp", "--salt_and_pepper", type=int, help="Salt and pepper density (default = 5000)")
-    argParser.add_argument("-ip", "--image_path", type=str, help="Path to save image (default = detection/image/)")
-    argParser.add_argument("-lp", "--label_path", type=str, help="Path to save label (default = detection/label/)")
+    argParser.add_argument("-dp", "--detection_path", type=str, help="Path to save image (default = detection/)")
     argParser.add_argument("-rp", "--recognition_path", type=str, help="Path to save recognition dataset (default = recognition/)")
+    argParser.add_argument("-id", "--is_detection", action='store_true', help="generate detection (default: true)")
+    argParser.add_argument("-ir", "--is_recognition", action='store_true', help="generate recognition (default: true)")
     args = argParser.parse_args()
 
     Generator = KTPGenerator("test.jpg", args=args)
 
     if args.test == True:
+        args.number = 1
         Generator.test()
     else:
         Generator.generate()
