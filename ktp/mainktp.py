@@ -198,8 +198,8 @@ class KTPGenerator:
                 x1, y1 = points[0]
                 x3, y3 = points[2]
                 cropped_img = self.out.crop((x1, y1, x3, y3))
-                cropped_img.save(f'{self.recogniton_path}train/word_{self.rec_counter}.png')
-                self.rec_labels += f"train/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
+                cropped_img.save(f'{self.recogniton_path}/word_{self.rec_counter}.png')
+                self.rec_labels += f"/word_{self.rec_counter}.png\t{self.predicted[i]}\n"
                 self.rec_counter += 1
 
             # detection labels
