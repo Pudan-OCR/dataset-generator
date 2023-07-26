@@ -1,32 +1,32 @@
-recognition/train/word_1.png	NIK
-recognition/train/word_2.png	Nama
-recognition/train/word_3.png	Tempat/Tgl Lahir
-recognition/train/word_4.png	Jenis Kelamin
-recognition/train/word_5.png	Gol Darah
-recognition/train/word_6.png	Alamat
-recognition/train/word_7.png	RT/RW
-recognition/train/word_8.png	Kel/Des
-recognition/train/word_9.png	Kecamatan
-recognition/train/word_10.png	Agama
-recognition/train/word_11.png	Status Perkawinan
-recognition/train/word_12.png	Pekerjaan
-recognition/train/word_13.png	Kewarganegaraan
-recognition/train/word_14.png	Berlaku Hingga
-recognition/train/word_15.png	PROVINSI PAPUA BARAT
-recognition/train/word_16.png	KABUPATEN BANJAR
-recognition/train/word_17.png	6895453472608628
-recognition/train/word_18.png	MARIA NAJMUDIN
-recognition/train/word_19.png	BANJAR, 08-10-2014
-recognition/train/word_20.png	PEREMPUAN
-recognition/train/word_21.png	A
-recognition/train/word_22.png	JL. M.H THAMRIN NO. 5
-recognition/train/word_23.png	355/384
-recognition/train/word_24.png	BUKITTINGGI
-recognition/train/word_25.png	SABANG
-recognition/train/word_26.png	HINDU
-recognition/train/word_27.png	BELUM KAWIN
-recognition/train/word_28.png	USTADZ
-recognition/train/word_29.png	WNA
-recognition/train/word_30.png	SEUMUR HIDUP
-recognition/train/word_31.png	JAYAPURA
-recognition/train/word_32.png	16-04-2008
+train/word_1.png	NIK
+train/word_2.png	Nama
+train/word_3.png	Tempat/Tgl Lahir
+train/word_4.png	Jenis Kelamin
+train/word_5.png	Gol Darah
+train/word_6.png	Alamat
+train/word_7.png	RT/RW
+train/word_8.png	Kel/Des
+train/word_9.png	Kecamatan
+train/word_10.png	Agama
+train/word_11.png	Status Perkawinan
+train/word_12.png	Pekerjaan
+train/word_13.png	Kewarganegaraan
+train/word_14.png	Berlaku Hingga
+train/word_15.png	PROVINSI SULAWESI SELATAN
+train/word_16.png	KABUPATEN MATARAM
+train/word_17.png	4749788279992106
+train/word_18.png	PRAYOGA PRABOWO
+train/word_19.png	BEKASI, 26-12-1970
+train/word_20.png	LAKI-LAKI
+train/word_21.png	A
+train/word_22.png	JL. PASTEUR NO. 360
+train/word_23.png	661/193
+train/word_24.png	YOGYAKARTA
+train/word_25.png	PADANG
+train/word_26.png	KATOLIK
+train/word_27.png	BELUM KAWIN
+train/word_28.png	PRT
+train/word_29.png	WNA
+train/word_30.png	30-04-1970
+train/word_31.png	TERNATE
+train/word_32.png	22-06-1982

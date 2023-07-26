@@ -1,224 +1,222 @@
-recognition/train/word_1.png	KARTU KELUARGA
-recognition/train/word_2.png	Nama Kepala Keluarga
-recognition/train/word_3.png	Alamat
-recognition/train/word_4.png	RT/RW
-recognition/train/word_5.png	Desa/Kelurahan
-recognition/train/word_6.png	Kecamatan
-recognition/train/word_7.png	Kabupaten/Kota
-recognition/train/word_8.png	Kode Pos
-recognition/train/word_9.png	Provinsi
-recognition/train/word_10.png	Nama Lengkap
-recognition/train/word_11.png	(1)
-recognition/train/word_12.png	NIK
-recognition/train/word_13.png	(2)
-recognition/train/word_14.png	Jenis
-recognition/train/word_15.png	(3)
-recognition/train/word_16.png	(4)
-recognition/train/word_17.png	(5)
-recognition/train/word_18.png	(6)
-recognition/train/word_19.png	(7)
-recognition/train/word_20.png	(8)
-recognition/train/word_21.png	Tanggal
-recognition/train/word_22.png	Agama
-recognition/train/word_23.png	Pendidikan
-recognition/train/word_24.png	Jenis Pekerjaan
-recognition/train/word_25.png	No.
-recognition/train/word_26.png	1
-recognition/train/word_27.png	2
-recognition/train/word_28.png	3
-recognition/train/word_29.png	4
-recognition/train/word_30.png	5
-recognition/train/word_31.png	6
-recognition/train/word_32.png	7
-recognition/train/word_33.png	8
-recognition/train/word_34.png	9
-recognition/train/word_35.png	10
-recognition/train/word_36.png	Tempat Lahir
-recognition/train/word_37.png	Kelamin
-recognition/train/word_38.png	Lahir
-recognition/train/word_39.png	No.
-recognition/train/word_40.png	1
-recognition/train/word_41.png	2
-recognition/train/word_42.png	3
-recognition/train/word_43.png	4
-recognition/train/word_44.png	5
-recognition/train/word_45.png	6
-recognition/train/word_46.png	7
-recognition/train/word_47.png	8
-recognition/train/word_48.png	9
-recognition/train/word_49.png	10
-recognition/train/word_50.png	Status Hubungan
-recognition/train/word_51.png	Dokumen Imigrasi
-recognition/train/word_52.png	Nama Orang Tua
-recognition/train/word_53.png	Status
-recognition/train/word_54.png	(9)
-recognition/train/word_55.png	(10)
-recognition/train/word_56.png	(11)
-recognition/train/word_57.png	(12)
-recognition/train/word_58.png	(13)
-recognition/train/word_59.png	(14)
-recognition/train/word_60.png	(15)
-recognition/train/word_61.png	Kewarganegaraan
-recognition/train/word_62.png	Ayah
-recognition/train/word_63.png	Ibu
-recognition/train/word_64.png	Perkawinan
-recognition/train/word_65.png	Dalam Keluarga
-recognition/train/word_66.png	No. Paspor
-recognition/train/word_67.png	No. KITAS/KITAP
-recognition/train/word_68.png	Dikeluarkan Tanggal
-recognition/train/word_69.png	A DINAS KEPENUDUDUKAN DAN
-recognition/train/word_70.png	KEPALA KELUARGA
-recognition/train/word_71.png	LEMBAR
-recognition/train/word_72.png	KEPALA KELUARGA
-recognition/train/word_73.png	I.Kepala Keluarga
-recognition/train/word_74.png	CATATAN SIPIL
-recognition/train/word_75.png	II.RT
-recognition/train/word_76.png	III.Desa/Kelurahan
-recognition/train/word_77.png	IV.Kecamatan
-recognition/train/word_78.png	Tanda Tangan/Cap Jempol
-recognition/train/word_79.png	Drs. PANCARIA SEMBIRING, MDA
-recognition/train/word_80.png	NIP.19601027198703 1 006
-recognition/train/word_81.png	K8881381324259
-recognition/train/word_82.png	No. 8881381295118637
-recognition/train/word_83.png	GANG GEDEBAGE SELATAN NO. 40
-recognition/train/word_84.png	-/-
-recognition/train/word_85.png	CILEGON
-recognition/train/word_86.png	PANGKALPINANG
-recognition/train/word_87.png	PADANGPANJANG
-recognition/train/word_88.png	21477
-recognition/train/word_89.png	NUSA TENGGARA BARAT
-recognition/train/word_90.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_91.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_92.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_93.png	8881382709717261
-recognition/train/word_94.png	LAKI-LAKI
-recognition/train/word_95.png	LHOKSEUMAWE
-recognition/train/word_96.png	27-09-1971
-recognition/train/word_97.png	ISLAM
-recognition/train/word_98.png	D-IV/STRATA I
-recognition/train/word_99.png	KARYAWAN SWASTA
-recognition/train/word_100.png	KAWIN
-recognition/train/word_101.png	KEPALA KELUARGA
-recognition/train/word_102.png	WNI
-recognition/train/word_103.png	RADEN LAKSITA
-recognition/train/word_104.png	SUCI NABABAN
-recognition/train/word_105.png	NOVA NASYIAH
-recognition/train/word_106.png	8881385811767261
-recognition/train/word_107.png	PEREMPUAN
-recognition/train/word_108.png	BENGKULU
-recognition/train/word_109.png	18-11-1976
-recognition/train/word_110.png	ISLAM
-recognition/train/word_111.png	D-IV/STRATA I
-recognition/train/word_112.png	APOTEKER
-recognition/train/word_113.png	KAWIN
-recognition/train/word_114.png	ISTRI
-recognition/train/word_115.png	WNI
-recognition/train/word_116.png	SABRINA LATUPONO
-recognition/train/word_117.png	R. HESTI MAULANA
-recognition/train/word_118.png	DT. CAWISONO WASKITA
-recognition/train/word_119.png	8881386502847261
-recognition/train/word_120.png	PEREMPUAN
-recognition/train/word_121.png	TIDORE KEPULAUAN
-recognition/train/word_122.png	25-02-1984
-recognition/train/word_123.png	ISLAM
-recognition/train/word_124.png	D-I/D-II
-recognition/train/word_125.png	PASTUR
-recognition/train/word_126.png	KAWIN
-recognition/train/word_127.png	ISTRI
-recognition/train/word_128.png	WNI
-recognition/train/word_129.png	CARLA MARYADI
-recognition/train/word_130.png	DRG. ANA RAHAYU
-recognition/train/word_131.png	SARAH TAYLOR
-recognition/train/word_132.png	8881385104847261
-recognition/train/word_133.png	PEREMPUAN
-recognition/train/word_134.png	NORTH KELSEY
-recognition/train/word_135.png	11-04-1984
-recognition/train/word_136.png	ISLAM
-recognition/train/word_137.png	D-IV/STRATA I
-recognition/train/word_138.png	PENATA BUSANA
-recognition/train/word_139.png	KAWIN
-recognition/train/word_140.png	ISTRI
-recognition/train/word_141.png	WNA
-recognition/train/word_142.png	E0992023
-recognition/train/word_143.png	4P22H58413-F
-recognition/train/word_144.png	ALEXANDER MORRIS
-recognition/train/word_145.png	KRISTI INGRAM
-recognition/train/word_146.png	DR. XANANA NAJMUDIN, S.FARM
-recognition/train/word_147.png	8881385010887261
-recognition/train/word_148.png	PEREMPUAN
-recognition/train/word_149.png	SORONG
-recognition/train/word_150.png	10-10-1988
-recognition/train/word_151.png	ISLAM
-recognition/train/word_152.png	SLTA/SEDERAJAT
-recognition/train/word_153.png	NOTARIS
-recognition/train/word_154.png	KAWIN
-recognition/train/word_155.png	ANAK
-recognition/train/word_156.png	WNI
-recognition/train/word_157.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_158.png	DT. CAWISONO WASKITA
-recognition/train/word_159.png	GAMANI KURNIAWAN
-recognition/train/word_160.png	8881382307937261
-recognition/train/word_161.png	LAKI-LAKI
-recognition/train/word_162.png	BANJARMASIN
-recognition/train/word_163.png	23-07-1993
-recognition/train/word_164.png	ISLAM
-recognition/train/word_165.png	STRATA III
-recognition/train/word_166.png	TIDAK BEKERJA
-recognition/train/word_167.png	BELUM KAWIN
-recognition/train/word_168.png	ANAK
-recognition/train/word_169.png	WNI
-recognition/train/word_170.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_171.png	NOVA NASYIAH
-recognition/train/word_172.png	R. ILSA TAMBA
-recognition/train/word_173.png	8881384201957261
-recognition/train/word_174.png	PEREMPUAN
-recognition/train/word_175.png	PEKALONGAN
-recognition/train/word_176.png	02-01-1995
-recognition/train/word_177.png	ISLAM
-recognition/train/word_178.png	AKADEMI/DIPLOMA III/S. MUDA
-recognition/train/word_179.png	PILOT
-recognition/train/word_180.png	KAWIN
-recognition/train/word_181.png	ANAK
-recognition/train/word_182.png	WNI
-recognition/train/word_183.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_184.png	DT. CAWISONO WASKITA
-recognition/train/word_185.png	SAFINA DABUKKE
-recognition/train/word_186.png	8881381911967261
-recognition/train/word_187.png	LAKI-LAKI
-recognition/train/word_188.png	PAYAKUMBUH
-recognition/train/word_189.png	19-11-1996
-recognition/train/word_190.png	ISLAM
-recognition/train/word_191.png	TIDAK/BELUM SEKOLAH
-recognition/train/word_192.png	PEGAWAI NEGERI
-recognition/train/word_193.png	KAWIN
-recognition/train/word_194.png	ANAK
-recognition/train/word_195.png	WNI
-recognition/train/word_196.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_197.png	NOVA NASYIAH
-recognition/train/word_198.png	RAHAYU MAYASARI
-recognition/train/word_199.png	8881385210987261
-recognition/train/word_200.png	PEREMPUAN
-recognition/train/word_201.png	PAREPARE
-recognition/train/word_202.png	12-10-1998
-recognition/train/word_203.png	ISLAM
-recognition/train/word_204.png	D-I/D-II
-recognition/train/word_205.png	PERDAGANGAN
-recognition/train/word_206.png	KAWIN
-recognition/train/word_207.png	ANAK
-recognition/train/word_208.png	WNI
-recognition/train/word_209.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_210.png	DT. CAWISONO WASKITA
-recognition/train/word_211.png	NADINE ARDIANTO
-recognition/train/word_212.png	8881382212057261
-recognition/train/word_213.png	LAKI-LAKI
-recognition/train/word_214.png	MEDAN
-recognition/train/word_215.png	22-12-2005
-recognition/train/word_216.png	ISLAM
-recognition/train/word_217.png	STRATA II
-recognition/train/word_218.png	ARSITEK
-recognition/train/word_219.png	BELUM KAWIN
-recognition/train/word_220.png	ANAK
-recognition/train/word_221.png	WNI
-recognition/train/word_222.png	DRG. ANITA HIDAYANTO, M.FARM
-recognition/train/word_223.png	NOVA NASYIAH
-recognition/train/word_224.png	03-12-2007
+train/word_1.png	KARTU KELUARGA
+train/word_2.png	Nama Kepala Keluarga
+train/word_3.png	Alamat
+train/word_4.png	RT/RW
+train/word_5.png	Desa/Kelurahan
+train/word_6.png	Kecamatan
+train/word_7.png	Kabupaten/Kota
+train/word_8.png	Kode Pos
+train/word_9.png	Provinsi
+train/word_10.png	Nama Lengkap
+train/word_11.png	(1)
+train/word_12.png	NIK
+train/word_13.png	(2)
+train/word_14.png	Jenis
+train/word_15.png	(3)
+train/word_16.png	(4)
+train/word_17.png	(5)
+train/word_18.png	(6)
+train/word_19.png	(7)
+train/word_20.png	(8)
+train/word_21.png	Tanggal
+train/word_22.png	Agama
+train/word_23.png	Pendidikan
+train/word_24.png	Jenis Pekerjaan
+train/word_25.png	No.
+train/word_26.png	1
+train/word_27.png	2
+train/word_28.png	3
+train/word_29.png	4
+train/word_30.png	5
+train/word_31.png	6
+train/word_32.png	7
+train/word_33.png	8
+train/word_34.png	9
+train/word_35.png	10
+train/word_36.png	Tempat Lahir
+train/word_37.png	Kelamin
+train/word_38.png	Lahir
+train/word_39.png	No.
+train/word_40.png	1
+train/word_41.png	2
+train/word_42.png	3
+train/word_43.png	4
+train/word_44.png	5
+train/word_45.png	6
+train/word_46.png	7
+train/word_47.png	8
+train/word_48.png	9
+train/word_49.png	10
+train/word_50.png	Status Hubungan
+train/word_51.png	Dokumen Imigrasi
+train/word_52.png	Nama Orang Tua
+train/word_53.png	Status
+train/word_54.png	(9)
+train/word_55.png	(10)
+train/word_56.png	(11)
+train/word_57.png	(12)
+train/word_58.png	(13)
+train/word_59.png	(14)
+train/word_60.png	(15)
+train/word_61.png	Kewarganegaraan
+train/word_62.png	Ayah
+train/word_63.png	Ibu
+train/word_64.png	Perkawinan
+train/word_65.png	Dalam Keluarga
+train/word_66.png	No. Paspor
+train/word_67.png	No. KITAS/KITAP
+train/word_68.png	Dikeluarkan Tanggal
+train/word_69.png	A DINAS KEPENUDUDUKAN DAN
+train/word_70.png	KEPALA KELUARGA
+train/word_71.png	LEMBAR
+train/word_72.png	KEPALA KELUARGA
+train/word_73.png	I.Kepala Keluarga
+train/word_74.png	CATATAN SIPIL
+train/word_75.png	II.RT
+train/word_76.png	III.Desa/Kelurahan
+train/word_77.png	IV.Kecamatan
+train/word_78.png	Tanda Tangan/Cap Jempol
+train/word_79.png	Drs. PANCARIA SEMBIRING, MDA
+train/word_80.png	NIP.19601027198703 1 006
+train/word_81.png	K8490700074306
+train/word_82.png	No. 8490707123851340
+train/word_83.png	JL. SILIWANGI NO. 71
+train/word_84.png	-/-
+train/word_85.png	PANGKALPINANG
+train/word_86.png	LHOKSEUMAWE
+train/word_87.png	KOTAMOBAGU
+train/word_88.png	98434
+train/word_89.png	KALIMANTAN TIMUR
+train/word_90.png	DRG. LULUT LAZUARDI
+train/word_91.png	DRG. LULUT LAZUARDI
+train/word_92.png	DRG. LULUT LAZUARDI
+train/word_93.png	8490701308737471
+train/word_94.png	LAKI-LAKI
+train/word_95.png	LHOKSEUMAWE
+train/word_96.png	13-08-1973
+train/word_97.png	KATOLIK
+train/word_98.png	AKADEMI/DIPLOMA III/S. MUDA
+train/word_99.png	PELAJAR/MAHASISWA
+train/word_100.png	KAWIN
+train/word_101.png	KEPALA KELUARGA
+train/word_102.png	WNI
+train/word_103.png	PRASETYO KUSUMO
+train/word_104.png	DR. RATNA WAHYUNI, M.TI.
+train/word_105.png	LIDYA MARPAUNG
+train/word_106.png	8490704811737471
+train/word_107.png	PEREMPUAN
+train/word_108.png	TERNATE
+train/word_109.png	08-11-1973
+train/word_110.png	KATOLIK
+train/word_111.png	SLTA/SEDERAJAT
+train/word_112.png	PENSIUN
+train/word_113.png	KAWIN
+train/word_114.png	ISTRI
+train/word_115.png	WNI
+train/word_116.png	CUT RATNA SALAHUDIN, M.FARM
+train/word_117.png	FARAH JAILANI
+train/word_118.png	DRS. EMPLUK RAHMAWATI, S.PD
+train/word_119.png	8490705508747471
+train/word_120.png	PEREMPUAN
+train/word_121.png	TANJUNGBALAI
+train/word_122.png	15-08-1974
+train/word_123.png	KATOLIK
+train/word_124.png	TAMAT SD/SEDERAJAT
+train/word_125.png	BIDAN
+train/word_126.png	KAWIN
+train/word_127.png	ISTRI
+train/word_128.png	WNI
+train/word_129.png	TGK. JARWA TARIHORAN, S.E.
+train/word_130.png	MAHMUD HUTASOIT
+train/word_131.png	DR. AJENG PRANOWO, M.AK
+train/word_132.png	8490702711777471
+train/word_133.png	LAKI-LAKI
+train/word_134.png	SURAKARTA
+train/word_135.png	27-11-1977
+train/word_136.png	KATOLIK
+train/word_137.png	STRATA II
+train/word_138.png	MEKANIK
+train/word_139.png	BELUM KAWIN
+train/word_140.png	ANAK
+train/word_141.png	WNI
+train/word_142.png	DRG. LULUT LAZUARDI
+train/word_143.png	DRS. EMPLUK RAHMAWATI, S.PD
+train/word_144.png	MUTIA MANDASARI, S.T.
+train/word_145.png	8490704404787471
+train/word_146.png	PEREMPUAN
+train/word_147.png	PRABUMULIH
+train/word_148.png	04-04-1978
+train/word_149.png	KATOLIK
+train/word_150.png	D-I/D-II
+train/word_151.png	PERAWAT
+train/word_152.png	KAWIN
+train/word_153.png	ANAK
+train/word_154.png	WNI
+train/word_155.png	DRG. LULUT LAZUARDI
+train/word_156.png	DRS. EMPLUK RAHMAWATI, S.PD
+train/word_157.png	NAJAM LAILASARI
+train/word_158.png	8490700111837471
+train/word_159.png	LAKI-LAKI
+train/word_160.png	KENDARI
+train/word_161.png	01-11-1983
+train/word_162.png	KATOLIK
+train/word_163.png	STRATA II
+train/word_164.png	WIRASWASTA
+train/word_165.png	KAWIN
+train/word_166.png	ANAK
+train/word_167.png	WNI
+train/word_168.png	DRG. LULUT LAZUARDI
+train/word_169.png	LIDYA MARPAUNG
+train/word_170.png	SISKA HAKIM, M.TI.
+train/word_171.png	8490700504887471
+train/word_172.png	LAKI-LAKI
+train/word_173.png	MAGELANG
+train/word_174.png	05-04-1988
+train/word_175.png	KATOLIK
+train/word_176.png	BELUM TAMAT SD/SEDERAJAT
+train/word_177.png	SENIMAN
+train/word_178.png	BELUM KAWIN
+train/word_179.png	ANAK
+train/word_180.png	WNI
+train/word_181.png	DRG. LULUT LAZUARDI
+train/word_182.png	DRS. EMPLUK RAHMAWATI, S.PD
+train/word_183.png	YUNITA WASTUTI
+train/word_184.png	8490705407887471
+train/word_185.png	PEREMPUAN
+train/word_186.png	SORONG
+train/word_187.png	14-07-1988
+train/word_188.png	KATOLIK
+train/word_189.png	STRATA II
+train/word_190.png	USTADZ
+train/word_191.png	KAWIN
+train/word_192.png	ANAK
+train/word_193.png	WNI
+train/word_194.png	DRG. LULUT LAZUARDI
+train/word_195.png	DRS. EMPLUK RAHMAWATI, S.PD
+train/word_196.png	NAJAM WIDIASTUTI
+train/word_197.png	8490702809987471
+train/word_198.png	LAKI-LAKI
+train/word_199.png	YOGYAKARTA
+train/word_200.png	28-09-1998
+train/word_201.png	KATOLIK
+train/word_202.png	TAMAT SD/SEDERAJAT
+train/word_203.png	PETERNAKNELAYAN
+train/word_204.png	BELUM KAWIN
+train/word_205.png	ANAK
+train/word_206.png	WNI
+train/word_207.png	DRG. LULUT LAZUARDI
+train/word_208.png	LIDYA MARPAUNG
+train/word_209.png	RAFID SIREGAR, S.I.KOM
+train/word_210.png	8490706310987471
+train/word_211.png	PEREMPUAN
+train/word_212.png	TANGERANG
+train/word_213.png	23-10-1998
+train/word_214.png	KATOLIK
+train/word_215.png	D-I/D-II
+train/word_216.png	PERAWAT
+train/word_217.png	KAWIN
+train/word_218.png	ANAK
+train/word_219.png	WNI
+train/word_220.png	DRG. LULUT LAZUARDI
+train/word_221.png	LIDYA MARPAUNG
+train/word_222.png	12-06-2005

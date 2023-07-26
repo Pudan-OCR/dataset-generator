@@ -1,28 +1,14 @@
-recognition/train/word_1.png	INDONESIA
-recognition/train/word_2.png	DRIVING LICENSE
-recognition/train/word_3.png	SURAT IZIN MENGEMUDI
-recognition/train/word_4.png	C
-recognition/train/word_5.png	LALITA RAHIMAH
-recognition/train/word_6.png	SUKABUMI, 07-02-2022
-recognition/train/word_7.png	A-WANITA
-recognition/train/word_8.png	GANG DIPATIUKUR NO. 6
-recognition/train/word_9.png	TUBAGUS ISMAIL
-recognition/train/word_10.png	PAPUA BARAT
-recognition/train/word_11.png	PELAUT
-recognition/train/word_12.png	YOGYAKARTA
-recognition/train/word_13.png	9436-9409-191461
-recognition/train/word_14.png	23-12-2003
-recognition/train/word_15.png	INDONESIA
-recognition/train/word_16.png	DRIVING LICENSE
-recognition/train/word_17.png	SURAT IZIN MENGEMUDI
-recognition/train/word_18.png	D
-recognition/train/word_19.png	LALA RAJATA
-recognition/train/word_20.png	MAKASSAR, 18-01-2000
-recognition/train/word_21.png	A-WANITA
-recognition/train/word_22.png	JALAN CIUMBULEUIT NO. 29
-recognition/train/word_23.png	ASIA AFRIKA
-recognition/train/word_24.png	KALIMANTAN BARAT
-recognition/train/word_25.png	NOTARIS
-recognition/train/word_26.png	BENGKULU
-recognition/train/word_27.png	4885-8539-926521
-recognition/train/word_28.png	18-09-2004
+train/word_1.png	INDONESIA
+train/word_2.png	DRIVING LICENSE
+train/word_3.png	SURAT IZIN MENGEMUDI
+train/word_4.png	D
+train/word_5.png	GILDA HABIBI
+train/word_6.png	CILEGON, 24-09-2009
+train/word_7.png	B-PRIA
+train/word_8.png	JALAN BKR NO. 697
+train/word_9.png	GARDUJATI
+train/word_10.png	JAMBI
+train/word_11.png	PERDAGANGAN
+train/word_12.png	NTT
+train/word_13.png	4634-5260-624007
+train/word_14.png	18-08-2022
