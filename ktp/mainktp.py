@@ -223,14 +223,15 @@ class KTPGenerator:
         self.out.show()
 
     def addLabel(self, draw, font, anchor, xy, text):
+        pad = 25
         left,top,right,bottom = draw.textbbox(xy,text, font= font, anchor=anchor)
-        bb = [(left-10,top-10),(right+10,top-10),(right+10,bottom+10),(left-10,bottom+10)]
+        bb = [(left-pad,top-pad),(right+pad,top-pad),(right+pad,bottom+pad),(left-pad,bottom+pad)]
         self.boundingbox.append(bb)
         self.predicted.append(text)
     
     def create(self):
         self.txt_layer = Image.new("RGBA", self.base.size, (255, 255, 255, 0))
-        self.boundingbox = [[(68, 265), (312, 265), (312, 384), (68, 384)],
+        bounding_boxes = [[(68, 265), (312, 265), (312, 384), (68, 384)],
                             [(63, 440), (273, 440), (273, 511), (63, 511)],
                             [(75, 520), (595, 520), (595, 599), (75, 599)],
                             [(72, 605), (501, 605), (501, 674), (72, 674)],
@@ -244,6 +245,18 @@ class KTPGenerator:
                             [(58, 1173), (388, 1179), (386, 1264), (57, 1257)],
                             [(55, 1258), (648, 1261), (647, 1342), (54, 1339)],
                             [(58, 1336), (543, 1346), (542, 1427), (57, 1417)]]
+
+        pad = 8
+        transformed_boxes = []
+        for bbox in bounding_boxes:
+            transformed_box = [(bbox[0][0] - pad, bbox[0][1] - pad),
+                            (bbox[1][0] + pad, bbox[1][1] - pad),
+                            (bbox[2][0] + pad, bbox[2][1] + pad),
+                            (bbox[3][0] - pad, bbox[3][1] + pad)]
+            transformed_boxes.append(transformed_box)
+
+        self.boundingbox = transformed_boxes
+        
         self.predicted = ["NIK","Nama","Tempat/Tgl Lahir","Jenis Kelamin","Gol Darah","Alamat","RT/RW","Kel/Des","Kecamatan",
                           "Agama","Status Perkawinan","Pekerjaan","Kewarganegaraan","Berlaku Hingga"]
         draw = ImageDraw.Draw(self.txt_layer)
