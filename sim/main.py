@@ -149,7 +149,7 @@ class SIMGenerator:
         self.predicted.append(text)
 
     def typeDrawer(self, type):
-        font = ImageFont.truetype("arial.ttf", 56)
+        font = ImageFont.truetype("./font/arial.ttf", 56)
         self.draw.text((550, 85), type, font=font, fill=(0, 0, 0, 220), anchor='lt',  stroke_width=2)
         self.addLabel(self.draw,font,'lt',(550, 85),type,2)
         
